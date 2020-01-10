@@ -94,3 +94,7 @@ const stepThroughCell = (row, column) => {
 };
 
 stepThroughCell(startRow, startColumn);
+
+horizontals.forEach((row) => {
+	console.log(row);
+});
