@@ -179,6 +179,10 @@ const ball = Bodies.circle(unitLengthX / 2, unitLengthY / 2, ballRadius, {
 World.add(world, ball);
 
 document.addEventListener('keydown', (event) => {
+	if (!timer.hasStarted) {
+		timer.start();
+	}
+
 	const { x, y } = ball.velocity;
 	if (event.keyCode === 87) {
 		Body.setVelocity(ball, { x, y: y - 5 });
@@ -202,6 +206,7 @@ Events.on(engine, 'collisionStart', (event) => {
 		if (labels.includes(collision.bodyA.label) && labels.includes(collision.bodyB.label)) {
 			document.querySelector('.winner').classList.remove('hidden');
 			world.gravity.y = 1;
+			timer.stop();
 			world.bodies.forEach((body) => {
 				if (body.label === 'wall') {
 					Body.setStatic(body, false);

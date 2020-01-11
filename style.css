@@ -19,3 +19,17 @@ h1 {
 	height: 100vh;
 	width: 100vw;
 }
+
+.stopwatch {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 1;
+	height: 2vh;
+	width: 50vw;
+}
+
+.timer {
+	text-align: center;
+}
