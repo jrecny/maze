@@ -1,8 +1,7 @@
-let currentTimer = document.querySelector('.timer');
+const currentTimer = document.querySelector('.timer');
 
 const timer = {
 	hasStarted : false,
-
 	start (delay = 1000) {
 		this.timerId = setInterval(() => {
 			currentTimer.value++;
@@ -11,14 +10,6 @@ const timer = {
 	},
 	stop () {
 		clearInterval(this.timerId);
+		currentTimer.style.color = 'rgba(0,255,0,.5)';
 	}
 };
-
-// timer.start(1000);
-
-// function startTimer (delay) {
-// 	setInterval(() => {
-// 		currentTimer.value++;
-// 	}, delay);
-// }
-// startTimer(1000);

@@ -1,3 +1,6 @@
+* {
+	font-family: sans-serif;
+}
 body {
 	margin: 0;
 }
@@ -20,16 +23,32 @@ h1 {
 	width: 100vw;
 }
 
-.stopwatch {
+#reset {
+	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
 	z-index: 1;
-	height: 2vh;
-	width: 50vw;
+	height: 120vh;
+	width: 100vw;
+	text-decoration: none;
+}
+
+.stopwatch {
+	display: block;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
 }
 
 .timer {
 	text-align: center;
+	font-size: 64px;
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, .5);
 }

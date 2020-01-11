@@ -1,7 +1,8 @@
+//======================MatterJS config ===================
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
-const cellsHorizontal = 15;
-const cellsVertical = 10;
+const cellsHorizontal = 3;
+const cellsVertical = 3;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -23,7 +24,7 @@ const render = Render.create({
 Render.run(render);
 Runner.run(Runner.create(), engine);
 
-//Walls
+//=====Walls======
 const walls = [
 	Bodies.rectangle(width / 2, 0, width, 2, { isStatic: true }),
 	Bodies.rectangle(width / 2, height, width, 2, { isStatic: true }),
@@ -32,7 +33,7 @@ const walls = [
 ];
 World.add(world, walls);
 
-//Maze Generation
+//=====Maze Generation=====
 //-----shuffle ------
 const shuffle = (arr) => {
 	let counter = arr.length;
@@ -205,6 +206,7 @@ Events.on(engine, 'collisionStart', (event) => {
 
 		if (labels.includes(collision.bodyA.label) && labels.includes(collision.bodyB.label)) {
 			document.querySelector('.winner').classList.remove('hidden');
+			document.querySelector('#reset').classList.remove('hidden');
 			world.gravity.y = 1;
 			timer.stop();
 			world.bodies.forEach((body) => {
